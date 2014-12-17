@@ -61,6 +61,8 @@ Table of Contents:
   * [Keep functions small](#keep-functions-small)
   * [Use behaviours](#use-behaviours)
   * [When programming defensively, do so on client side](#when-programming-defensively-do-so-on-client-side)
+  * [Move stuff to independent applications](#move-stuff-to-independent-applications)
+  * [Types in exported functions](#types-in-exported-functions)
 
 ## Contact Us
 
@@ -520,3 +522,11 @@ If you don't tighten up the function head, the gen_server will crash.
 *Reasoning*: It's easier to share among apps. If open-sourced, you're sharing it with the community and you get the benefits of the community being involved in it.
 
 *Note*: Do **not** create highly specific libraries that are too coupled with the project you're working on. Use this rule for libraries that will likely be reused in other projects.
+
+***
+##### Types in exported functions
+> Custom data types used in exported functions should be defined with Erlang type declarations and exported from the module
+
+*Examples*: [data_types](src/data_types.erl)
+
+*Reasoning*: It helps with function documentation and, when using opaque types, we ensure encapsulation.
